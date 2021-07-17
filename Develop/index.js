@@ -34,7 +34,7 @@ const questions = [
     type: "list",
     message: "Choose the applicable License.",
     name: "license",
-    choices: ["MIT license","Apache License 2.0","GNU General public license v3.0"],
+    choices: ["MIT license","Apache License 2.0","GNU General public license v3.0","BSD 2-Clause License"],
     validate: (value) => { if (value) { return true } else { return 'Please provide value to continue' } }
 },
 {
