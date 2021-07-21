@@ -1,5 +1,5 @@
 // TODO: Include packages needed for this application
-
+const generator = require('./utils/generateMarkdown.js');
 const fs = require("fs");
 const inquirer = require("inquirer");
 const axios = require("axios");
@@ -16,6 +16,12 @@ const questions = [
     type: "input",
     message: "Describe your project.",
     name: "description",
+    validate: (value) => { if (value) { return true } else { return 'Please provide value to continue' } }
+},
+{
+    type: "input",
+    message: "Table of Contents.",
+    name: "table of contents",
     validate: (value) => { if (value) { return true } else { return 'Please provide value to continue' } }
 },
 {
@@ -40,19 +46,19 @@ const questions = [
 {
     type: "input",
     message: "Who contributed?",
-    name: "Contributing",
+    name: "contributing",
     validate: (value) => { if (value) { return true } else { return 'Please provide value to continue' } }
 },
 {
     type: "input",
-    message: "Steps to test application.",
+    message: "Tests.",
     name: "tests",
     validate: (value) => { if (value) { return true } else { return 'Please provide value to continue' } }
 },
 {
     type: "input",
     message: "Enter your GitHub user.",
-    name: "GitHubuser",
+    name: "github",
     validate: (value) => { if (value) { return true } else { return 'Please provide value to continue' } }
 },
 {
@@ -63,7 +69,7 @@ const questions = [
 },
 {
     type: "input",
-    message: "Enter your project's GitHub repository",
+    message: "Any remaining questions",
     name: "repository",
     validate: (value) => { if (value) { return true } else { return 'Please provide value to continue' } }
 },
@@ -71,16 +77,19 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFileSync(fileName, "", function (err) {
-        if (err) {
-          return console.log(err);
-        }
-        console.log("Success! Your README was generated!");
-      }); 
+    fs.writeFileSync(fileName, data, (err) =>
+    err ? console.error(err) : console.log('Success! README file was generated!')
+  );
 }
+   
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+      .then(function (data) {
+        writeToFile( './readme_file/README.md', generator(data)); 
+      })
+  }
 
 // Function call to initialize app
 init();

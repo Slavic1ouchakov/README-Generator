@@ -39,13 +39,46 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license !== "N/A") {
+    return `Project registered under ${license}`
+  } else {
+    return 'No registered License'
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
-
-`;
+  ${renderLicenseBadge(data.license)}
+  ## Description
+  ${data.description}
+  ## Table of Contents 
+   * [installation](##installation)
+   * [usage](##usage)
+   * [license](##license)
+   * [contributing](##contributing)
+   * [tests](##tests)
+   * [questions](##questions)
+  
+  
+## installation
+  The following are steps to install the application: ${data.installation}
+ ## Usage 
+  To use the application, ${data.usage} 
+ ## License 
+  ${renderLicenseSection(data.license)}
+ 
+  ${renderLicenseLink(data.License)}
+ ## Contributing
+ Contributors: ${data.contributing}
+ ## Tests
+ Following steps have to be taken to test the application: ${data.tests}
+ ## Questions
+ If you have any question please call on: ${data.questions}
+ https://github.com/${data.github}/${data.title}
+ ${data.email}
+ `;
 }
 
 module.exports = generateMarkdown;
