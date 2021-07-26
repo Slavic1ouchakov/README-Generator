@@ -1,7 +1,7 @@
-# README Creator
-  
+# README Generator
+  [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
   ## Description
-  Create a professional readme within terminal through js and node
+  Using node and Javascript to create a professional README with the terminal
   ## Table of Contents 
    * [installation](##installation)
    * [usage](##usage)
@@ -12,19 +12,19 @@
   
   
 ## installation
-  The following are steps to install the application: Utilize run node within terminal to activate sequence
+  The following are steps to install the application: npm install 
  ## Usage 
-  To use the application, Create of readme.md file for project 
+  To use the application, Create of README.md file for a project 
  ## License 
-  Project registered under MIT license
+  Project registered under BSD 2-Clause License
  
   
  ## Contributing
- Contributors: Viacheslav Ouchakov
+ Contributors: Slavic Ouchakov
  ## Tests
- Following steps have to be taken to test the application: npm test and functionality tests
+ Following steps have to be taken to test the application: npm test 
  ## Questions
- If you have any question please call on: No further questions
- https://github.com/slavic1ouchakov/README Creator
+ If you have any question please call on: undefined
+ https://github.com/slavic1ouchakov/README Generator
  slavic.ouchakov@gmail.com
  
